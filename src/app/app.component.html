@@ -1,0 +1,41 @@
+<div class= "text"> {{ title }} </div>
+
+<div>
+   <mat-form-field style= "margin-left: 10px;">
+      <mat-label>Symbol</mat-label>
+      <input matInput [(ngModel)]="symbol">
+   </mat-form-field>
+   <mat-form-field>
+      <mat-label>Side</mat-label>
+      <mat-select [(ngModel)]="side">
+         <mat-option *ngFor="let side of sides" [value]="side">
+         {{side}}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+   <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput [(ngModel)]="price">
+   </mat-form-field>
+   <mat-form-field>
+      <mat-label>Quantity</mat-label>
+      <input matInput [(ngModel)]="quantity">
+   </mat-form-field>
+   <button mat-flat-button (click)="placeOrder()">Place Order</button>
+</div>
+<div style= "margin-left: 10px;">
+   <input matInput [(ngModel)]="checkMsg">
+</div>
+<div>
+<ag-grid-angular  class="ag-theme-alpine-dark"
+   [gridOptions]="dataGridOptions"
+   [columnDefs]="columnDefs"
+   [rowData]="gridData"
+>
+</ag-grid-angular>
+</div>
+
+<div class = "text"> 
+   1. By placing a new order, the orderbook will update accordingly with latest info about total quantity and number of orders in that price level <br>
+   2. Double click the row, it will bring up the drilldown page to show all the accumulated orders related to that price level on the symbol 
+</div>

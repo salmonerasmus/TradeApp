@@ -1,0 +1,9 @@
+ag-grid-angular {
+    height: calc(60vh);
+    padding: 10px;    
+}
+
+.text{
+    font-weight: bold;
+    padding: 10px;
+}
